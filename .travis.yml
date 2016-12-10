@@ -1,0 +1,10 @@
+language: java
+jdk:
+  - oraclejdk8
+before_install:
+  - git clone https://github.com/jjYBdx4IL/diskcache
+  - mvn install -f diskcache -DskipTests
+  - git clone https://github.com/jjYBdx4IL/github-utils
+  - mvn install -f github-utils -DskipTests
+env:
+  - PUBLIC_CI=true
