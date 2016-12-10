@@ -17,5 +17,6 @@
 
     <modules>
         <module>postscript</module>
+        <module>svg</module>
     </modules>
 </project>

@@ -1,3 +1,5 @@
 /postscript/target/
 /*.xml~
 /postscript/*.xml~
+/svg/*.xml~
+/svg/target

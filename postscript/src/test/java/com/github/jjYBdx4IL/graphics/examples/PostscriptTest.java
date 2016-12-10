@@ -1,5 +1,6 @@
 package com.github.jjYBdx4IL.graphics.examples;
 
+import com.github.jjYBdx4IL.utils.env.CI;
 import org.junit.Test;
 
 import java.awt.GridLayout;
