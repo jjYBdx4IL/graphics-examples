@@ -39,6 +39,7 @@ public class JavaCVWebCam implements Runnable {
         try {
             grabber.start();
             IplImage img;
+            IplImage imgGray = null;
             while (true) {
                 Frame frame = grabber.grab();
                 img = cvt.convertToIplImage(frame);
@@ -46,7 +47,9 @@ public class JavaCVWebCam implements Runnable {
                     //Mat frameMat = cvt.convert(frame);
                     //Mat sobelX = new Mat();
                     //Sobel(frameMat, sobelX, CV_32F, 1, 0);
-                    IplImage imgGray = opencv_core.cvCreateImage(opencv_core.cvSize(frame.imageWidth, frame.imageHeight), IPL_DEPTH_8U, 1);
+                    if (imgGray == null) {
+                        imgGray = opencv_core.cvCreateImage(opencv_core.cvSize(frame.imageWidth, frame.imageHeight), IPL_DEPTH_8U, 1);
+                    }
                     opencv_imgproc.cvCvtColor(img, imgGray, CV_RGB2GRAY);
                     
                     //opencv_core.cvFlip(img, img, 1);// l-r = 90_degrees_steps_anti_clockwise

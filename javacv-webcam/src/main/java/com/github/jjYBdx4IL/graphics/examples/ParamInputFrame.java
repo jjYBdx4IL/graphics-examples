@@ -19,8 +19,8 @@ public class ParamInputFrame extends JFrame implements ActionListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(ParamInputFrame.class);
 
-    protected final AtomicInteger threshold1Value = new AtomicInteger(Float.floatToIntBits(1f));
-    protected final AtomicInteger threshold2Value = new AtomicInteger(Float.floatToIntBits(100f));
+    protected final AtomicInteger threshold1Value = new AtomicInteger(Float.floatToIntBits(90f));
+    protected final AtomicInteger threshold2Value = new AtomicInteger(Float.floatToIntBits(90f));
     protected final AtomicInteger apertureSizeValue = new AtomicInteger(3);
 
     protected final JTextField threshold1 = new JTextField(Float.toString(Float.intBitsToFloat(threshold1Value.get())));
@@ -65,7 +65,7 @@ public class ParamInputFrame extends JFrame implements ActionListener {
                 threshold2Value.set(Float.floatToIntBits(Float.parseFloat(threshold2.getText())));
             }
             if (e.getSource() == apertureSize) {
-                apertureSizeValue.set(Integer.parseInt(threshold2.getText()));
+                apertureSizeValue.set(Integer.parseInt(apertureSize.getText()));
             }
         } catch (NumberFormatException ex) {
             LOG.error("", ex);
