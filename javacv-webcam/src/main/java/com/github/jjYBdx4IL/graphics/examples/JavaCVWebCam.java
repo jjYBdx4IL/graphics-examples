@@ -42,14 +42,18 @@ public class JavaCVWebCam implements Runnable {
             IplImage imgGray = null;
             while (true) {
                 Frame frame = grabber.grab();
-                img = cvt.convertToIplImage(frame);
-                if (img != null) {
+                //img = cvt.convertToIplImage(frame);
+                if (frame != null) {
+                    Mat m = cvt.convert(frame);
+                    //opencv_imgproc.GaussianBlur(m, m, new opencv_core.Size(3, 3), 15d);
+                    
                     //Mat frameMat = cvt.convert(frame);
                     //Mat sobelX = new Mat();
                     //Sobel(frameMat, sobelX, CV_32F, 1, 0);
                     if (imgGray == null) {
                         imgGray = opencv_core.cvCreateImage(opencv_core.cvSize(frame.imageWidth, frame.imageHeight), IPL_DEPTH_8U, 1);
                     }
+                    img = cvt.convertToIplImage(cvt.convert(m));
                     opencv_imgproc.cvCvtColor(img, imgGray, CV_RGB2GRAY);
                     
                     //opencv_core.cvFlip(img, img, 1);// l-r = 90_degrees_steps_anti_clockwise
