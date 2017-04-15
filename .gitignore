@@ -3,3 +3,4 @@
 /postscript/*.xml~
 /svg/*.xml~
 /svg/target
+/javacv-webcam/target/

@@ -2,22 +2,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.jjYBdx4IL.graphics.examples</groupId>
-    <artifactId>aggregator</artifactId>
+    <artifactId>javacv-webcam</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
     
-    <name>Graphics Examples :: Aggregator</name>
+    <name>Graphics Examples :: JavaCV Webcam</name>
     <url>https://github.com/jjYBdx4IL/graphics-examples</url>
-    <inceptionYear>2016</inceptionYear>
+    <inceptionYear>2017</inceptionYear>
 
     <organization>
         <name>Github jjYBdx4IL Projects</name>
         <url>https://github.com/jjYBdx4IL</url>
     </organization>
 
-    <modules>
-        <module>postscript</module>
-	<module>svg</module>
-	<module>javacv-webcam</module>
-    </modules>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv-platform</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+    </dependencies>
 </project>
