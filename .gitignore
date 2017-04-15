@@ -4,3 +4,9 @@
 /svg/*.xml~
 /svg/target
 /javacv-webcam/target/
+*.xml~
+/.project
+/postscript/.classpath
+/postscript/.project
+/postscript/.settings/org.eclipse.core.resources.prefs
+/postscript/.settings/org.eclipse.jdt.core.prefs

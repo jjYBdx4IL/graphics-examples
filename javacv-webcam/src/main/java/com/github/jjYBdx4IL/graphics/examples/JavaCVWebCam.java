@@ -59,6 +59,9 @@ public class JavaCVWebCam implements Runnable {
                     //opencv_core.cvFlip(img, img, 1);// l-r = 90_degrees_steps_anti_clockwise
                     //opencv_imgproc.cvSobel(img, img, 1, 1);
                     opencv_imgproc.cvCanny(imgGray, imgGray, params.threshold1(), params.threshold2(), params.apertureSize());
+                    
+                    opencv_imgproc.cvDilate(imgGray, imgGray);
+                    
                     //opencv_imgcodecs.cvSaveImage((i++)+"-aa.jpg", img);
                     // show image on window
                     canvas.showImage(cvt.convert(imgGray));
