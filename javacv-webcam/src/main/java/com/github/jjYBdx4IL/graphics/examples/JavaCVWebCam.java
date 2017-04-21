@@ -1,13 +1,11 @@
 package com.github.jjYBdx4IL.graphics.examples;
 
 import org.bytedeco.javacpp.opencv_core;
-import static org.bytedeco.javacpp.opencv_core.CV_32F;
 import static org.bytedeco.javacpp.opencv_core.IPL_DEPTH_8U;
 import org.bytedeco.javacpp.opencv_core.IplImage;
 import org.bytedeco.javacpp.opencv_core.Mat;
 import org.bytedeco.javacpp.opencv_imgproc;
 import static org.bytedeco.javacpp.opencv_imgproc.CV_RGB2GRAY;
-import static org.bytedeco.javacpp.opencv_imgproc.Sobel;
 import org.bytedeco.javacv.CanvasFrame;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.FrameGrabber;
@@ -58,7 +56,7 @@ public class JavaCVWebCam implements Runnable {
                     
                     //opencv_core.cvFlip(img, img, 1);// l-r = 90_degrees_steps_anti_clockwise
                     //opencv_imgproc.cvSobel(img, img, 1, 1);
-                    opencv_imgproc.cvCanny(imgGray, imgGray, params.threshold1(), params.threshold2(), params.apertureSize());
+                    opencv_imgproc.cvCanny(imgGray, imgGray, params.threshold1(), params.threshold2());
                     
                     opencv_imgproc.cvDilate(imgGray, imgGray);
                     
