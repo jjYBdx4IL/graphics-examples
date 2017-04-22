@@ -1,6 +1,7 @@
 package com.github.jjYBdx4IL.graphics.examples;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -28,7 +29,7 @@ public class ParamInputFrame extends JFrame implements ActionListener {
     protected final JTextField apertureSize = new JTextField(Integer.toString(apertureSizeValue.get()));
 
     public ParamInputFrame() {
-        super("params");
+        super("JavaCV Webcam Parameters");
 
         GridBagConstraints c = new GridBagConstraints();
         GridBagLayout layout = new GridBagLayout();
@@ -50,6 +51,8 @@ public class ParamInputFrame extends JFrame implements ActionListener {
         threshold2.addActionListener(this);
         apertureSize.addActionListener(this);
 
+        pack();
+        setPreferredSize(new Dimension(getWidth()*2, getHeight()));
         pack();
         setVisible(true);
     }

@@ -20,7 +20,7 @@ public class JavaCVWebCam implements Runnable {
 
     //final int INTERVAL=1000;///you may use interval
     IplImage image;
-    CanvasFrame canvas = new CanvasFrame("Web Cam");
+    CanvasFrame canvas = new CanvasFrame("JavaCV Webcam");
     ParamInputFrame params = new ParamInputFrame();
 
     public JavaCVWebCam() {
@@ -44,7 +44,7 @@ public class JavaCVWebCam implements Runnable {
                 if (frame != null) {
                     Mat m = cvt.convert(frame);
                     //opencv_imgproc.GaussianBlur(m, m, new opencv_core.Size(3, 3), 15d);
-                    
+
                     //Mat frameMat = cvt.convert(frame);
                     //Mat sobelX = new Mat();
                     //Sobel(frameMat, sobelX, CV_32F, 1, 0);
@@ -53,13 +53,13 @@ public class JavaCVWebCam implements Runnable {
                     }
                     img = cvt.convertToIplImage(cvt.convert(m));
                     opencv_imgproc.cvCvtColor(img, imgGray, CV_RGB2GRAY);
-                    
+
                     //opencv_core.cvFlip(img, img, 1);// l-r = 90_degrees_steps_anti_clockwise
                     //opencv_imgproc.cvSobel(img, img, 1, 1);
                     opencv_imgproc.cvCanny(imgGray, imgGray, params.threshold1(), params.threshold2());
-                    
+
                     opencv_imgproc.cvDilate(imgGray, imgGray);
-                    
+
                     //opencv_imgcodecs.cvSaveImage((i++)+"-aa.jpg", img);
                     // show image on window
                     canvas.showImage(cvt.convert(imgGray));
