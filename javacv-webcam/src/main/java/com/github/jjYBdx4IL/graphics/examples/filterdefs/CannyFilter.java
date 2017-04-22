@@ -1,6 +1,7 @@
 package com.github.jjYBdx4IL.graphics.examples.filterdefs;
 
 import org.bytedeco.javacpp.opencv_core;
+import org.bytedeco.javacpp.opencv_imgproc;
 
 /**
  *
@@ -8,13 +9,20 @@ import org.bytedeco.javacpp.opencv_core;
  */
 public class CannyFilter extends AbstractFilter {
 
-    public double threshold1;
-    public double threshold2;
-    
-    public static final boolean REQUIRES_GRAYSCALE_INPUT = true;
+    public CannyFilter() {
+        super(2);
+        getParamDefs().add(new PositiveThresholdParamDef("Threshold 1"));
+        getParamDefs().add(new PositiveThresholdParamDef("Threshold 2"));
+    }
 
     @Override
     public opencv_core.IplImage process(opencv_core.IplImage img) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        opencv_imgproc.cvCanny(img, img, (Double)getParam(0), (Double)getParam(1));
+        return img;
+    }
+    
+    @Override
+    public boolean requiresGrayImage() {
+        return true;
     }
 }

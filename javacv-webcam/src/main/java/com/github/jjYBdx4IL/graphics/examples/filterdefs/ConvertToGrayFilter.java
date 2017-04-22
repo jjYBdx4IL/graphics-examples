@@ -12,6 +12,10 @@ import static org.bytedeco.javacpp.opencv_imgproc.CV_RGB2GRAY;
  */
 public class ConvertToGrayFilter extends AbstractFilter {
 
+    public ConvertToGrayFilter() {
+        super(0);
+    }
+    
     public IplImage process(IplImage img) {
         IplImage grayImg = opencv_core.cvCreateImage(opencv_core.cvSize(img.width(), img.height()), IPL_DEPTH_8U, 1);
         opencv_imgproc.cvCvtColor(img, grayImg, CV_RGB2GRAY);
