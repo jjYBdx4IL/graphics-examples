@@ -21,6 +21,8 @@ import org.bytedeco.javacv.OpenCVFrameConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.jjYBdx4IL.utils.awt.AWTUtils;
+
 /**
  * http://docs.opencv.org/trunk/d7/d8b/tutorial_py_lucas_kanade.html
  * http://stackoverflow.com/questions/15623128/opencvs-calcopticalflowpyrlk-throws-exception
@@ -52,6 +54,7 @@ public class TrackingExampleMain {
         OpenCVFrameConverter.ToMat cvt = new OpenCVFrameConverter.ToMat();
         CanvasFrame canvas = new CanvasFrame("JavaCV Tracking");
         canvas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AWTUtils.centerOnMouseScreen(canvas);
         FrameGrabber grabber = new FFmpegFrameGrabber(videoFileName);
         grabber.setPixelFormat(AV_PIX_FMT_RGB24);
         grabber.start();
